@@ -1,0 +1,38 @@
+[
+    {
+        "precio": 2,
+        "id": 1,
+        "title": "Café",
+        "url": "https://cdn.pixabay.com/photo/2016/01/02/04/59/coffee-1117933__340.jpg"
+    },
+    {
+        "precio": 15,
+        "id": 2,
+        "title": "Pizza",
+        "url": "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg"
+    },
+    {
+        "precio": 8,
+        "id": 3,
+        "title": "Vino",
+        "url": "https://cdn.pixabay.com/photo/2014/11/22/18/38/wine-541922_1280.jpg"
+    },
+    {
+        "precio": 1.5,
+        "id": 4,
+        "title": "Cerveza",
+        "url": "https://cdn.pixabay.com/photo/2017/10/23/23/32/beer-2882991__340.jpg"
+    },
+    {
+        "precio": 25,
+        "id": 5,
+        "title": "Sushi",
+        "url": "https://cdn.pixabay.com/photo/2014/05/26/14/53/sushi-354628_1280.jpg"
+    },
+    {
+        "precio": 2.5,
+        "id": 6,
+        "title": "Fresas",
+        "url": "https://cdn.pixabay.com/photo/2017/11/18/17/09/strawberries-2960533_1280.jpg"
+    }
+]
