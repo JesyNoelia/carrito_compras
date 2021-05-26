@@ -5,10 +5,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 
 <body>
+    <nav class="py-2 bg-dark border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Productos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Categorias</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Quienes Somos</a></li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Inicia Sesion</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Registrate</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-4">Tienda Online</span>
+            </a>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+        </div>
+    </header>
+
+
+
+
+    <div class="container">
+
+
+
+        <div class="row" id="contenedor-productos">
+
+        </div>
+
+    </div>
+
+    <template id="template-productos">
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text"> Precio</p>
+                    <button class="btn btn-dark">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </template>
 
 
     <script src="app.js"></script>
