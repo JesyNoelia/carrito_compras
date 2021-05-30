@@ -51,8 +51,104 @@ const detectarBotones = (data) => {
             }
             carrito[producto.id] = { ...producto }
             //console.log('carrito', carrito)
-            spintarCarrito()
+            pintarCarrito()
         })
     })
-}
+};
+
+const items = document.querySelector('#items')
+const pintarCarrito = () => {
+
+    items.innerHTML = ''
+
+    //console.log(Object.values(carrito));  transforma en array los objetos
+    const template = document.querySelector('#template-carrito').content
+    const fragment = document.createDocumentFragment()
+    Object.values(carrito).forEach(producto => {
+        //console.log(producto);
+        template.querySelector('th').textContent = producto.id;
+        template.querySelectorAll('td')[0].textContent = producto.title;
+        template.querySelectorAll('td')[1].textContent = producto.cantidad;
+        template.querySelector('span').textContent = producto.precio * producto.cantidad;
+
+        //botones
+        template.querySelector('.btn-info').dataset.id = producto.id;
+        template.querySelector('.btn-danger').dataset.id = producto.id;
+
+        const clone = template.cloneNode(true);
+        fragment.appendChild(clone);
+    });
+    items.appendChild(fragment);
+    pintarFooterCarrito();
+    accionBotones();
+
+};
+
+const footer = document.querySelector('#footer-carrito')
+const pintarFooterCarrito = () => {
+
+    footer.innerHTML = '';
+
+    if (Object.keys(carrito).length === 0) {
+        footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
+        return
+    }
+
+
+    const template = document.querySelector('#template-footer').content;
+    const fragment = document.createDocumentFragment();
+
+    //sumar cantidad y sumar totales
+
+    const nCantidad = Object.values(carrito).reduce((acumulador, { cantidad }) => acumulador + cantidad, 0);
+    //console.log(nCantidad);
+
+    const nTotal = Object.values(carrito).reduce((acumulador, { cantidad, precio }) => acumulador + cantidad * precio, 0);
+
+    template.querySelectorAll('td')[0].textContent = nCantidad;
+    template.querySelector('span').textContent = nTotal
+
+    const clone = template.cloneNode(true);
+    fragment.appendChild(clone);
+
+    footer.appendChild(fragment);
+
+    const botonVaciar = document.querySelector('#vaciar-carrito');
+    botonVaciar.addEventListener('click', () => {
+        carrito = {};
+        pintarCarrito();
+
+    });
+
+};
+
+const accionBotones = () => {
+    const botonesAgregar = document.querySelectorAll('#items .btn-info');
+    const botonesEliminar = document.querySelectorAll('#items .btn-danger');
+
+    botonesAgregar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            //console.log('agregando');
+            //console.log(btn.dataset.id);
+            const producto = carrito[btn.dataset.id];
+            producto.cantidad++;
+            carrito[btn.dataset.id] = { ...producto };
+            pintarCarrito();
+        });
+    });
+
+    botonesEliminar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            //console.log('eliminando');
+            const producto = carrito[btn.dataset.id];
+            producto.cantidad--;
+            if (producto.cantidad === 0) {
+                delete carrito[btn.dataset.id]
+            } else {
+                carrito[btn.dataset.id] = { ...producto };
+            };
+            pintarCarrito();
+        });
+    });
+};
 
