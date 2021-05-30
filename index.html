@@ -41,13 +41,143 @@
         </div>
     </header>
 
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="350px" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#F4D03F" />
+                </svg>
 
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h2>Visita nuestra Tienda Online.</h2>
+                        <p>Consigue todos los productos que estas buscando</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Saber más</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="350px" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#7DCEA0" />
+                </svg>
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h2>Encuentra todas las ofertas.</h2>
+                        <p>Todas las semanas con ofertas unicas</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Ver ofertas de la semana</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="350px" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#F1948A" />
+                </svg>
+
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h2>Registrate para ver las ultimas novedades</h2>
+                        <p>Registrandote recibiras todas las ultimas novedades y ofertas.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Registrate</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
 
     <div class="container">
-        <div class="row" id="contenedor-productos">
+
+        <hr>
+
+        <div class="my-5">
+            <h4>Carrito de compras</h4>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Acción</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="items"></tbody>
+                <tfoot>
+                    <tr id="footer-carrito">
+                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
+
+        <div class="row" id="contenedor-productos"></div>
+
+
     </div>
+
+    <div class="row" id="contenedor-productos">
+    </div>
+    </div>
+
+
+    <template id="template-footer">
+        <th scope="row" colspan="2">Total productos</th>
+        <td>10</td>
+        <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                vaciar todo
+            </button>
+        </td>
+        <td class="font-weight-bold">$ <span>5000</span></td>
+    </template>
+
+    <template id="template-carrito">
+        <tr>
+            <th scope="row">id</th>
+            <td>Café</td>
+            <td>1</td>
+            <td>
+                <button class="btn btn-info btn-sm">
+                    +
+                </button>
+                <button class="btn btn-danger btn-sm">
+                    -
+                </button>
+            </td>
+            <td>$ <span>500</span></td>
+        </tr>
+    </template>
+
+    <template id="template-card">
+        <div class="col-12 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Titulo</h5>
+                    <p>precio</p>
+                    <button class="btn btn-dark">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <template id="template-productos">
         <div class="col-12 col-md-4">
